@@ -10,99 +10,110 @@ main()
 	char str1,str2[20];
 	char s1[10],s2[10],s[20],ch1;
 	int ch,i,length,FLAG = 0, COUNT=0;
-	printf("1. Reverse String\n2. Concatenation\n3. Palindrome\n4. Copy String\n5. Length of the String\n6. Frequency of Character in string\n7. Find number of vowels and consonants\n8. Find number of blank spaces and digits\n ");
-	printf("\n\nEnter the Choice: ");
-	scanf("%d",&ch);
+	printf("\n1. Reverse String\n2. Concatenation\n3. Palindrome\n4. Copy String\n5. Length of the String\n6. Frequency of Character in string\n7. Find number of vowels and consonants\n8. Find number of blank spaces and digits\n9. Exit ");
 	
 	
-	switch(ch)
-	{
-		//Reverse of string
-		case 1:
-			{
-				printf("Enter the String: ");
-				scanf("%c",&str1);
-				reverseString();
-				break;		
-			}
-			
-		//Concatenation of string
-		case 2:
-			{
-				printf("\nEnter the String1: ");
-				scanf("%s",&s1);
-				printf("\nEnter the String2: ");
-				scanf("%s",&s2);
-				
-				printf("\nAfter Concatenation:: %s ",strcat(s1,s2));
-				break;
-			}
-			
-		//String palindrome
-		case 3:
+		do
+		{
+			printf("\n\nEnter the Choice: ");
+			scanf("%d",&ch);
+			switch(ch)
 			{	
-				stringPalindrome();
-				break;
-	
-			}
-		//Copy the string	
-		case 4:
-			{
-				char s2[10]="";
-				printf("Enter the String: ");
-				scanf("%s",&s1);
-				
-				printf("\n-----BEFORE COPY-----");
-				printf("\nActual String = %s",s1);
-				printf("\nCoping String = %s",s2);
-				
-				strcpy(s2,s1);
-				
-				printf("\n-----AFTER COPY-----");
-				printf("\nActual String = %s",s1);
-				printf("\nCoping String = %s",s2);
-				break;
-								
-			}
+				//Reverse of string
+				case 1:
+				{
+					printf("\nEnter the String: ");
+					scanf("%c",&str1);
+					reverseString();
+					break;		
+				}
 			
-		//Length of String
-		case 5:
-			{
-				printf("Enter the String: ");
-				scanf("%s",&s1);
+				//Concatenation of string
+				case 2:
+				{
+					printf("\nEnter the String1: ");
+					scanf("%s",&s1);
+					printf("\nEnter the String2: ");
+					scanf("%s",&s2);
+					
+					printf("\nAfter Concatenation:: %s ",strcat(s1,s2));
+					break;
+				}
 				
-				printf("Length of the string is %zu",strlen(s1));
-				break;
-			}
+				//String palindrome
+				case 3:
+				{	
+					stringPalindrome();
+					break;
+		
+				}
+				//Copy the string	
+				case 4:
+				{
+					char s2[10]="";
+					printf("\nEnter the String: ");
+					scanf("%s",&s1);
+					
+					printf("\n-----BEFORE COPY-----");
+					printf("\nActual String = %s",s1);
+					printf("\nCoping String = %s",s2);
+					
+					strcpy(s2,s1);
+					
+					printf("\n-----AFTER COPY-----");
+					printf("\nActual String = %s",s1);
+					printf("\nCoping String = %s",s2);
+					break;
+									
+				}
+				
+				//Length of String
+				case 5:
+				{
+					printf("\nEnter the String: ");
+					scanf("%s",&s1);
+					
+					printf("\nLength of the string is %zu",strlen(s1));
+					break;
+				}
+				
+				//Frequency of String
+				case 6:
+				{
+					printf("\nEnter the String: ");
+					scanf("%s",&str2);
+					frequencyStr(str2);
+					break;
+				}	
 			
-		//Frequency of String
-		case 6:
-			{
-				printf("Enter the String: ");
-				scanf("%s",&str2);
-				frequencyStr(str2);
+				// count vowel and consonants
+				case 7:
+				{
+					printf("\nEnter thr String: ");
+					scanf("%s",&str2);
+					strVowelConso(str2);
+					break;
+				}
+			
+				// count blank space and digit
+				case 8:
+				{
+					countDigits_blankspace();
+					break;			
+				}
+				
+				case 9:
+					printf("\nExiting...Thank you!");
+					break;
+					
+				default:
+				printf("\nPlease enter valid choice!");
 				break;
+				
 			}	
-		
-		//
-		case 7:
-			{
-				printf("Enter thr String: ");
-				scanf("%s",&str2);
-				strVowelConso(str2);
-				break;
-			}
-		
-		//
-		case 8:
-			{
-				countDigits_blankspace();
-				break;			
-			}
-			
-		default:
-		printf("\nPlease enter valid choice!");		
-	}
+						
+		}while(ch != 9);
+	
 }
 
 //Function of reverse a string
@@ -140,7 +151,7 @@ stringPalindrome()
 {
 			int i, length, FLAG=0;
 			char str2[30];
-			printf("Enter the String: ");
+			printf("\nEnter the String: ");
 				//gets(str2);
 				scanf("%s",&str2);
 	
@@ -157,11 +168,11 @@ stringPalindrome()
 
 				if(FLAG)
 				{
-					printf("%s is not a palindrome",str2);
+					printf("\n%s is not a palindrome",str2);
 				}
 				else
 				{
-					printf("%s is as palindrome",str2);		
+					printf("\n%s is as palindrome",str2);		
 				}
 
 }
@@ -212,7 +223,7 @@ countDigits_blankspace()
 	int nDIGIT=0, nWHITE=0,nLETTER=0, nother=0;
 	int i=0;
 	
-	printf("Enter the String: ");
+	printf("\nEnter the String: ");
 	scanf("%s",&str2);
 				
 	
